@@ -40,7 +40,7 @@ export default function RecipeController(app) {
     const currentUser = req.session["currentUser"];
     console.log("req.session", req.session);
     const userId = currentUser._id;
-    await dao.createRecipe(recipe123._id, userId);
+    await dao.createLike(recipe123._id, userId);
     res.json(recipe123);
   };
 
