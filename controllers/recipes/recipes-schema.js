@@ -8,8 +8,5 @@ const recipeSchema = mongoose.Schema(
   { collection: "recipes" }
 );
 
- 
-
 export default mongoose.model("Recipe", recipeSchema);
-
- 
+export { recipeSchema };

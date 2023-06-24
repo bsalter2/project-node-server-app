@@ -24,9 +24,19 @@ const findAllUsers = async (req, res) => {
 };
 
 const findUserById = async (req, res) => {
-  const id = req.params.id;
+  const id = req.params.uid;
   const user = await usersDao.findUserById(id);
   res.json(user);
+};
+
+const findUserByUsername = async (req, res) => {
+  const username = req.params.username;
+  const user = await usersDao.findUserByUsername(username);
+  if (user) {
+    res.json(user);
+  } else {
+    res.sendStatus(403);
+  }
 };
 
 const createUser = async (req, res) => {
@@ -35,22 +45,23 @@ const createUser = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
-  const id = req.params.id;
+  const id = req.params.uid;
   const status = await usersDao.deleteUser(id);
   res.json(status);
 };
 
 const updateUser = async (req, res) => {
-  const id = req.params.id;
-  const status = await usersDao.updateUser(id, req.body);
+  const id = req.params.uid;
+  await usersDao.updateUser(id, req.body);
   const user = await usersDao.findUserById(id);
   req.session["currentUser"] = user;
-  res.json(status);
+  res.json(user);
 };
 
 const UserController = (app) => {
   app.get("/api/users", findAllUsers);
   app.get("/api/users/:uid", findUserById);
+  app.get("/api/users/username/:username", findUserByUsername);
   app.post("/api/users", createUser);
   app.delete("/api/users/:uid", deleteUser);
   app.put("/api/users/:uid", updateUser);
