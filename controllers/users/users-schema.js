@@ -27,6 +27,7 @@ const usersSchema = new mongoose.Schema(
     lastName: String,
     email: String,
     phoneNumber: String,
+    bio: String,
   },
   { collection: "users" }
 );
