@@ -32,15 +32,14 @@ export default function RecipeController(app) {
     } else {
       const newRecipe = await dao.createRecipe({
         ...req.body,
-        recipeId,
-        likes: 1,
+        likes: 1
       });
       recipe123 = newRecipe;
     }
-    const currentUser = req.session["currentUser"];
-    console.log("req.session", req.session);
-    const userId = currentUser._id;
-    await dao.createLike(recipe123._id, userId);
+    // const currentUser = req.session["currentUser"];
+    // console.log("req.session", req.session);
+    // const userId = currentUser._id;
+    // await dao.createLike(recipe123._id, userId);
     res.json(recipe123);
   };
 
@@ -56,6 +55,6 @@ export default function RecipeController(app) {
   app.get("/api/recipes/:id", findRecipeById);
   app.get("/api/recipes/recipeId/:recipeId", findRecipeByRecipeId);
   app.post("/api/recipes", createRecipe);
-  app.post("/api/recipes/recipeId/:recipeId/like", likeRecipe);
+  app.put("/api/recipes/recipeId/:recipeId/like", likeRecipe);
   app.get("/api/recipes/i/like", findRecipesILike);
 }

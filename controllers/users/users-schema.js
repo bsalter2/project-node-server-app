@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { recipeSchema } from "../recipes/recipes-schema.js";
+import recipeSchema  from "../recipes/recipes-schema.js";
 
 const usersSchema = new mongoose.Schema(
   {

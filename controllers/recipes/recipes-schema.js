@@ -2,11 +2,10 @@ import mongoose from "mongoose";
 const recipeSchema = mongoose.Schema(
   {
     name: String,
-    recipeId: String,
+    recipeId: Number,
     likes: { type: Number, default: 0 },
   },
   { collection: "recipes" }
 );
 
-export default mongoose.model("Recipe", recipeSchema);
-export { recipeSchema };
+export default recipeSchema;
