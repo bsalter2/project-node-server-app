@@ -26,7 +26,7 @@ export default function RecipeController(app) {
     const recipe = await dao.findRecipeByRecipeId(recipeId);
     let recipe123 = null;
     if (recipe) {
-    recipe.likes = recipe.likes + 1;
+    recipe.likes = req.body.likes;
       await recipe.save();
       recipe123 = recipe;
     } else {
