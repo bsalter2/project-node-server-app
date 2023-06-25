@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 const recipeSchema = mongoose.Schema(
   {
     name: String,
-    recipeId: Number,
+    recipeId: String,
     likes: { type: Number, default: 0 },
   },
   { collection: "recipes" }
