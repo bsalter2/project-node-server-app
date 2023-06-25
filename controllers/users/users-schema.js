@@ -12,7 +12,7 @@ const usersSchema = new mongoose.Schema(
       required: true,
     },
     likes: {
-      type: [recipeSchema],
+      type: [String],
       unique: true,
     },
     followers: {
