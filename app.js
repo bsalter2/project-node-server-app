@@ -24,6 +24,7 @@ app.use(
     origin: [
       "http://localhost:3000",
       "https://deploybranch--meek-starburst-e084c8.netlify.app/",
+      "https://api.spoonacular.com"
     ],
   })
 );
