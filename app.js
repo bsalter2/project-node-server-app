@@ -21,7 +21,12 @@ app.use(
 app.use(
   cors({
     credentials: true,
-    origin: '*'
+    origin: [
+      "http://localhost:3000",
+      "http://deploybranch--meek-starburst-e084c8.netlify.app/",
+      "http://api.spoonacular.com"
+    ],
+    allowedHeaders
   })
 );
 
