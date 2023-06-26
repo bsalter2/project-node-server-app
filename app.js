@@ -26,7 +26,6 @@ app.use(
       "http://deploybranch--meek-starburst-e084c8.netlify.app/",
       "http://api.spoonacular.com"
     ],
-    allowedHeaders
   })
 );
 
