@@ -21,7 +21,9 @@ app.use(
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:3000",
+    origin: "*"
+    // origin: "http://localhost:3000",
+    // origin: "https://meek-starburst-e084c8.netlify.app/",
   })
 );
 
