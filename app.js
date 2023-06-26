@@ -21,9 +21,10 @@ app.use(
 app.use(
   cors({
     credentials: true,
-    origin: "*"
-    // origin: "http://localhost:3000",
-    // origin: "https://meek-starburst-e084c8.netlify.app/",
+    origin: [
+      "http://localhost:3000",
+      "https://deploybranch--meek-starburst-e084c8.netlify.app/",
+    ],
   })
 );
 
@@ -32,7 +33,7 @@ app.use(express.json());
 const port = process.env.PORT || 4000;
 UserController(app);
 AuthController(app);
-RecipeController(app)
+RecipeController(app);
 app.listen(port);
 
 mongoose.connect(CONNECTION_STRING).then(
