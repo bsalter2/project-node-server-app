@@ -21,11 +21,24 @@ app.use(
 app.use(
   cors({
     credentials: true,
-    origin: [
-      "http://localhost:3000",
-      "http://deploybranch--meek-starburst-e084c8.netlify.app",
-      "http://api.spoonacular.com"
-    ],
+    origin: 'http://deploybranch--meek-starburst-e084c8.netlify.app',
+    //[
+    //   "http://localhost:3000",
+    //   "http://deploybranch--meek-starburst-e084c8.netlify.app",
+    //   "http://api.spoonacular.com"
+    // ],
+  })
+);
+app.use(
+  session({
+    secret: "any string",
+    resave: false,
+    proxy: true,
+    saveUninitialized: false,
+    cookie: {
+      sameSite: "none",
+      secure: true,
+    },
   })
 );
 
