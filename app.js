@@ -11,17 +11,19 @@ const app = express();
 const CONNECTION_STRING =
   "mongodb+srv://testUser:test@cluster0.tbpbyz4.mongodb.net/project?retryWrites=true&w=majority";
 
-app.use(
+app.set("trust proxy", 1);
+
+/* app.use(
   session({
     secret: "any string",
     resave: false,
     saveUninitialized: true,
   })
-);
+); */
 app.use(
   cors({
     credentials: true,
-    origin: '*',
+    origin: "http://deploybranch--meek-starburst-e084c8.netlify.app",
     //[
     //   "http://localhost:3000",
     //   "http://deploybranch--meek-starburst-e084c8.netlify.app",
